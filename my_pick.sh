@@ -26,9 +26,9 @@ popd
 #wget https://github.com/nvertigo/android_frameworks_base/commit/6408344bc9ef06dd264a5ad4431659e21ff675d5.patch -O - | git am
 #popd
 
-#Nightdisplay - MERGED
-#pushd device/oneplus/oneplus3t
-#git fetch git fetch https://review.lineageos.org/LineageOS/android_device_oneplus_oneplus3 refs/changes/68/165968/1 && git cherry-pick FETCH_HEAD
+#enable Nightdisplay
+pushd device/oneplus/oneplus3t
+git fetch git fetch https://review.lineageos.org/LineageOS/android_device_oneplus_oneplus3 refs/changes/68/165968/1 && git cherry-pick FETCH_HEAD
 #popd
 
 #Notification slider: add extra options
