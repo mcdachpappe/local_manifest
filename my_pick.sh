@@ -1,11 +1,6 @@
 #!/bin/bash
 
-#. build/envsetup.sh
-
-#temp fix for ogg/vorbis
-pushd hardware/qcom/audio-caf/msm8996
-git fetch https://review.lineageos.org/LineageOS/android_hardware_qcom_audio refs/changes/64/163564/3 && git cherry-pick FETCH_HEAD
-popd
+. build/envsetup.sh
 
 #add Magisk
 pushd build
@@ -13,6 +8,14 @@ pushd build
 wget https://github.com/nvertigo/android_build/commit/63a305e3312595f73d4e037e66bdfed87ecc1d20.patch -O - | git am
 #magisk: delete magisk.zip from system after flashing
 wget https://github.com/nvertigo/android_build/commit/5bd6eb23466b8c0b13142b20360fc6e4670e3ba5.patch -O - | git am
+popd
+
+#network-traffic monitor
+repopick -t network-traffic
+
+#init.rc: set initial cpuset to all cores
+pushd system/core
+git fetch https://review.lineageos.org/LineageOS/android_system_core refs/changes/32/169032/1 && git cherry-pick FETCH_HEAD
 popd
 
 #microG
@@ -27,3 +30,12 @@ popd
 #pushd device/oneplus/oneplus3t
 #git fetch git fetch https://review.lineageos.org/LineageOS/android_device_oneplus_oneplus3 refs/changes/68/165968/1 && git cherry-pick FETCH_HEAD
 #popd
+
+#Notification slider: add extra options
+pushd device/oppo/common
+git fetch https://review.lineageos.org/LineageOS/android_device_oppo_common refs/changes/85/30585/7 && git cherry-pick FETCH_HEAD
+popd
+#Notification slider: add extra options -> Kernel patches
+pushd kernel/oneplus/msm8996
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996/commit/a78d731890a1e88372dfdab0c6bdf87b6a585b94.patch -O - | git am
+popd
