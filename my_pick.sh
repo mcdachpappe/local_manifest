@@ -29,9 +29,12 @@ popd
 #change local version
 pushd device/oneplus/oneplus3t
 wget https://github.com/mcdachpappe/android_device_oneplus_oneplus3t/commit/80dd9234a6d326e6ee017f7f5bb26453a411d3a4.patch -O - | git am
+popd
+
 #enable Nightdisplay
-git fetch git fetch https://review.lineageos.org/LineageOS/android_device_oneplus_oneplus3 refs/changes/68/165968/1 && git cherry-pick FETCH_HEAD
-#popd
+pushd device/oneplus/oneplus3t
+git fetch https://review.lineageos.org/LineageOS/android_device_oneplus_oneplus3 refs/changes/68/165968/1 && git cherry-pick FETCH_HEAD
+popd
 
 #Notification slider: add extra options
 pushd device/oppo/common
