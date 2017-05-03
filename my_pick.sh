@@ -58,6 +58,7 @@ read -p "Press ENTER..."
 # get the LineageOMS commits:
 ${LOMSDIR}/lineage_oms_merge.sh ${LAOSROOT}
 
+read -p "Press ENTER..."
 
 #change local version
 pushd device/oneplus/oneplus3t
