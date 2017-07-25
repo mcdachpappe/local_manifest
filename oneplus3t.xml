@@ -42,6 +42,11 @@
 
   <project name="mcdachpappe/android_vendor_magisk" path="vendor/magisk" remote="github" revision="mcd" />
 
+<!-- add Custom Snap -->
+  
+  <remove-project name="LineageOS/android_packages_apps_Snap" />
+  <project path="packages/apps/Snap" name="sultanxda/android_packages_apps_Snap" revision="oneplus3/cm-14.1-sultan" />
+
 <!-- add Weatherproviders -->
 
   <project path="packages/apps/WeatherProviders" name="sultanxda/android_packages_apps_WeatherProviders" revision="cm-14.1" />
