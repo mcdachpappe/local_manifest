@@ -1,4 +1,4 @@
-This is the local manifest for mcdachpappe/GZOSP 8.0 for oneplus3t.
+This is the local manifest for ValidusOS 8.0 for oneplus3t.
 
 The repo is optimized for oneplus3t and does NOT work
 for oneplus3.
@@ -78,7 +78,7 @@ sudo chmod a+x /usr/local/bin/repo
 cd /where/you/want/to/your/source-tree
 mkdir -p cm14/my_tmp
 cd cm14
-repo init -u https://github.com/GZOSP/manifest.git -b 8.0
+repo init -u https://github.com/ValidusOs/manifest.git -b 8.0
 cd my_tmp
 git clone https://github.com/mcdachpappe/local_manifest.git
 cd local_manifest
