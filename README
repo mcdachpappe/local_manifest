@@ -1,4 +1,4 @@
-This is the local manifest for Nvertigo/LineageOS cm-14.1 for oneplus3t.
+This is the local manifest for mcdachpappe/GZOSP 8.0 for oneplus3t.
 
 The repo is optimized for oneplus3t and does NOT work
 for oneplus3.
@@ -78,11 +78,11 @@ sudo chmod a+x /usr/local/bin/repo
 cd /where/you/want/to/your/source-tree
 mkdir -p cm14/my_tmp
 cd cm14
-repo init -u git://github.com/LineageOS/android.git -b cm-14.1
+repo init -u https://github.com/GZOSP/manifest.git -b 8.0
 cd my_tmp
-git clone https://github.com/nvertigo/local_manifest.git
+git clone https://github.com/mcdachpappe/local_manifest.git
 cd local_manifest
-git checkout cm-14.1
+git checkout 8.0
 cd ../../.repo
 mkdir local_manifests
 cd local_manifests
@@ -115,7 +115,7 @@ git lg1
 popd
 
 
-Building LineageOS
+Building GZOSP
 ------------------
 
 The example build script calls "make clean" before each build. On
