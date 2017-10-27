@@ -48,7 +48,7 @@ cd ../../.repo
 mkdir local_manifests
 cd local_manifests
 ln -s ../../my_tmp/local_manifest/oneplus3t.xml .
-ln -s ../../my_tmp/local_manifest/nlos .
+ln -s ../../my_tmp/local_manifest/nlos.xml .
 ln -s ../../my_tmp/local_manifest/zz-remove-unused.xml .
 cd ../..
 ln -s my_tmp/local_manifest/my_build.sh ./my-build
