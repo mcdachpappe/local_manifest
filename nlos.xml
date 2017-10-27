@@ -57,7 +57,7 @@
 
 <!-- VoxPopuli -->
 
-  <project path="device/voxpopuli" name="EAS-Project/android_device_voxpopuli" remote="github" revision="nlos/msm8996" />
+  <project path="device/voxpopuli" name="nvertigo/android_device_voxpopuli" remote="github" revision="nlos/msm8996" />
 
 <!-- Track ThemeInterfacer -->
     <project path="packages/services/ThemeInterfacer" name="substratum/interfacer" remote="github" revision="n-rootless" />
