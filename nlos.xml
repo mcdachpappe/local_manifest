@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+<!-- get NLOS -->
+
+  <remove-project name="LineageOS/android_build" />
+  <project path="build" name="nvertigo/android_build" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_frameworks_av" />
+  <project path="frameworks/av" name="nvertigo/android_frameworks_av" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_frameworks_base" />
+  <project path="frameworks/base" name="nvertigo/android_frameworks_base" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_frameworks_native" />
+  <project path="frameworks/native" name="nvertigo/android_frameworks_native" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_packages_apps_CMParts" />
+  <project path="packages/apps/CMParts" name="nvertigo/android_packages_apps_CMParts" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_packages_apps_Contacts" />
+  <project path="packages/apps/Contacts" name="nvertigo/android_packages_apps_Contacts" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_packages_apps_ContactsCommon" />
+  <project path="packages/apps/ContactsCommon" name="nvertigo/android_packages_apps_ContactsCommon" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_packages_apps_Dialer" />
+  <project path="packages/apps/Dialer" name="nvertigo/android_packages_apps_Dialer" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_packages_apps_ExactCalculator" />
+  <project path="packages/apps/ExactCalculator" name="nvertigo/android_packages_apps_ExactCalculator" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_packages_apps_LockClock" />
+  <project path="packages/apps/LockClock" name="nvertigo/android_packages_apps_LockClock" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_packages_apps_PackageInstaller" />
+  <project path="packages/apps/PackageInstaller" name="nvertigo/android_packages_apps_PackageInstaller" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_packages_apps_PhoneCommon" />
+  <project path="packages/apps/PhoneCommon" name="nvertigo/android_packages_apps_PhoneCommon" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_packages_apps_WallpaperPicker" />
+  <project path="packages/apps/WallpaperPicker" name="nvertigo/android_packages_apps_NLOSWallpaperPicker" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_packages_apps_Settings" />
+  <project path="packages/apps/Settings" name="nvertigo/android_packages_apps_Settings" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_system_sepolicy" />
+  <project path="system/sepolicy" name="nvertigo/android_system_sepolicy" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_vendor_cm" />
+  <project path="vendor/cm" name="nvertigo/android_vendor_cm" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/cm_platform_sdk" />
+  <project path="vendor/cmsdk" name="nvertigo/cm_platform_sdk" revision="nlos-14.1" />
+
+<!-- add busybox and toybox: use busybox for broken network toys-->
+
+  <project path="external/busybox" name="nvertigo/android_external_busybox" remote="github" revision="nlos-14.1" />
+
+  <remove-project name="LineageOS/android_external_toybox" />
+  <project path="external/toybox" name="nvertigo/android_external_toybox" remote="github" revision="nlos-14.1" />
+
+<!-- VoxPopuli -->
+
+  <project path="device/voxpopuli" name="EAS-Project/android_device_voxpopuli" remote="github" revision="msm8996" />
+
+<!-- Track ThemeInterfacer -->
+    <project path="packages/services/ThemeInterfacer" name="substratum/interfacer" remote="github" revision="n-rootless" />
+
+</manifest>
