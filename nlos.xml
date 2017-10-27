@@ -39,9 +39,6 @@
   <remove-project name="LineageOS/android_packages_apps_PhoneCommon" />
   <project path="packages/apps/PhoneCommon" name="nvertigo/android_packages_apps_PhoneCommon" revision="nlos-14.1" />
 
-  <remove-project name="LineageOS/android_packages_apps_WallpaperPicker" />
-  <project path="packages/apps/WallpaperPicker" name="nvertigo/android_packages_apps_NLOSWallpaperPicker" revision="nlos-14.1" />
-
   <remove-project name="LineageOS/android_packages_apps_Settings" />
   <project path="packages/apps/Settings" name="nvertigo/android_packages_apps_Settings" revision="nlos-14.1" />
 
