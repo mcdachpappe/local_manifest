@@ -45,9 +45,6 @@
   <remove-project name="LineageOS/android_system_sepolicy" />
   <project path="system/sepolicy" name="nvertigo/android_system_sepolicy" revision="nlos-14.1" />
 
-  <remove-project name="LineageOS/android_vendor_cm" />
-  <project path="vendor/cm" name="nvertigo/android_vendor_cm" revision="nlos-14.1" />
-
   <remove-project name="LineageOS/cm_platform_sdk" />
   <project path="vendor/cmsdk" name="nvertigo/cm_platform_sdk" revision="nlos-14.1" />
 
@@ -60,7 +57,7 @@
 
 <!-- VoxPopuli -->
 
-  <project path="device/voxpopuli" name="EAS-Project/android_device_voxpopuli" remote="github" revision="msm8996" />
+  <project path="device/voxpopuli" name="EAS-Project/android_device_voxpopuli" remote="github" revision="nlos/msm8996" />
 
 <!-- Track ThemeInterfacer -->
     <project path="packages/services/ThemeInterfacer" name="substratum/interfacer" remote="github" revision="n-rootless" />
