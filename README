@@ -51,6 +51,7 @@ ln -s ../../my_tmp/local_manifest/oneplus3t.xml .
 ln -s ../../my_tmp/local_manifest/nlos.xml .
 ln -s ../../my_tmp/local_manifest/zz-remove-unused.xml .
 cd ../..
+ln -s build/core/root.mk ./Makefile
 ln -s my_tmp/local_manifest/my_build.sh ./my-build
 ln -s my_tmp/local_manifest/my_pick.sh ./my-pick
 ln -s my_tmp/local_manifest/my_reset.sh ./my-reset
