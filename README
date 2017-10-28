@@ -61,7 +61,7 @@ Syncing (aka download) the sources
 
 Shell command:
 #this takes some time; it's about 52GB to fetch
-repo sync
+repo sync -j4 --no-clone-bundle --no-tags --optimized-fetch --prune
 
 When the sync has finished, adjust TARGET_UNOFFICIAL_BUILD_ID
 in device/oneplus/oneplus3t/lineage.mk
