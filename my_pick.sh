@@ -142,6 +142,88 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/0f1b019699e82bdda1e2d37435988
 
 ##
 
+# tcp_westwood : Tune-up
+wget https://github.com/MSF-Jarvis/oneplus3/commit/53f79d9f5ae6e6f96b1c6d95a922e148e5cf7b65
+
+# caesium_defconfig: Set westwood as default TCP congestion handler
+wget https://github.com/MSF-Jarvis/oneplus3/commit/152f3300d0a438bfd42b90ce4deddcedda0cd9b1
+
+# enable advanced tcp
+wget https://github.com/mady51/gzosp-base/commit/4e02bc4a213fdcb1f7599b291f1efefb19699366
+
+##
+
+#
+# maple scheduler
+#
+
+# block: Add Maple I/O Scheduler
+wget https://github.com/MSF-Jarvis/oneplus3/commit/8c1203706a29e93c813d295a1e9983f85974cc85
+
+# block: maple: Remove CONFIG_HZ dependency, assume 300 for interrupt frequency
+wget https://github.com/MSF-Jarvis/oneplus3/commit/2dd26e75efa358a27d32ced9ec72e9c8481f513a
+
+# block: maple: Clean up and add patchlevel macro to keep track of commits
+wget https://github.com/MSF-Jarvis/oneplus3/commit/e2772c33a69edb725e1f269cf64674d9bd32c23e
+
+# block: maple: Catch writes_starved sooner, increase limit.
+wget https://github.com/MSF-Jarvis/oneplus3/commit/64ee478b70b927ebde1565eea52c249eedf7993a
+
+# block: maple: Fix some logic, import former/latter request logic from SIO, and use some improved bits of SIO
+wget https://github.com/MSF-Jarvis/oneplus3/commit/0a4f44eec57ced3d6af7497c85e952ca6da522a8
+
+# block: maple: Serve asynchronous requests before synchronous ones
+wget https://github.com/MSF-Jarvis/oneplus3/commit/9a3c593803c79924327efc71114320b2422bd1c6
+
+# block: maple: Serve asynchronous requests before synchronous ones
+wget https://github.com/MSF-Jarvis/oneplus3/commit/cfc5b8e48d5bbc9b58dc058d2defab849202a4f0
+
+# block: maple: Make bools constant across functions
+wget https://github.com/MSF-Jarvis/oneplus3/commit/fcc333a4840cd4d14714325118f1238def863551
+
+# block: maple: Fix inverted logic
+wget https://github.com/MSF-Jarvis/oneplus3/commit/4760efa007e281fa2f31de9411f49b7299ad846a
+
+# maple-iosched: Fix the -Wdeclaration-after-statement warnings
+wget https://github.com/MSF-Jarvis/oneplus3/commit/e305ac9cf81822a612155f48e4f000ffb2ef388b
+
+# block: maple: Stop abusing csd.list for fifo_time
+wget https://github.com/MSF-Jarvis/oneplus3/commit/19bbc46b0eddba9ad84fb43c0d96b4e89f813e21
+
+# block: Maple.iosched: Fix Compiler Errors
+wget https://github.com/MSF-Jarvis/oneplus3/commit/70fbf6056be5035d88833f3b68363200394913e3
+
+# block: maple: Use better presets
+wget https://github.com/MSF-Jarvis/oneplus3/commit/ec491c4fc7f17dd491e67a1689aaec782b638db5
+
+# defconfig: enable MAPLE ioshed
+wget https://github.com/mady51/gzosp-base/commit/cf179686f10b51954e4766795fb72ed652847a8e
+
+##
+
+#
+# alucard
+#
+
+# Drivers: cpufreq: fix for Alucard gov freqs stuck allways at max
+wget https://github.com/mady51/gzosp-base/commit/148ba5d0b50d8589461a131f97e499190dc13d71
+
+# Drivers: cpufreq: Add Alucard Governor
+wget https://github.com/mady51/gzosp-base/commit/6118639bdd4203579b2b99cf98df8303294f00a4
+
+# Drivers: cpufreq: fix for Alucard gov freqs stuck allways at max
+wget https://github.com/mady51/gzosp-base/commit/eb9716580d4433532c8d363d656233b0faa0696c
+
+# defconfig: enable alucard gov
+wget https://github.com/mady51/gzosp-base/commit/7c85eaf03e7ee15f720e0abc2965d20e6b2d1349
+
+##
+
+#
+# state notifier
+#
+
+
 popd
 
 read -p "Press ENTER..."
