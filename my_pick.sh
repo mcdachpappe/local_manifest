@@ -10,19 +10,31 @@ read -p "Press ENTER..."
 
 pushd kernel/oneplus/msm8996
 
-# arm64: lib: memory utilities optimization
-wget https://github.com/mady51/gzosp-base/commit/6828a9819b333d1711bc0c1ca66daf74164d37e0.patch -O - | git am
+# Optimize the display effects of SRGB
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/3c5ed92281ff8c8a2c0f01c51552df294376bc50
+
+# DTS: Enable wakeup events for the volume keys
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/56702c010fd6891d4540e5cbbe69d6aa036c62be
+
+# arm: dts: Remove MSM watchdog IPI ping in msm8996
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/dc5fd93a1151c0baf6e9af1e708708a412959b48
+
+# ASoC: core: Don't assign an out-of-bounds address to rtd_aux
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/cb5393a5cc74f8ea0af0d836b44021de6033e34c
+
+# msm: qdsp6v2: Allow 320K AAC encoding
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/a2b8534c945fa3e93ab8ec9cf1ec26ea6af2be14
+
+# drivers:usb:gadget: Set product_string for Android Auto
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/088c33e014e49a2c7238741c161e3c7bbac453fc
+
 
 ##
 
 # display: add a simple api to query the display state (on/off) at any point in time
 wget https://github.com/MSF-Jarvis/oneplus3/commit/508314f794a38adeb0b807a5ba713691c6a680ac.patch -O - | git am
 
-# cpufreq: cpu-boost: don't boost big cluster on input touch unless it has at least 1 task running on any of its cores to save power
-wget https://github.com/mady51/gzosp-base/commit/fdf06aa97a53a0ee95cb7a40e80ced5600abc58f.patch -O - | git am
 
-# cpufreq: cpu-boost: don't boost if input_boost_ms is <= 0
-wget https://github.com/mady51/gzosp-base/commit/d4c82e2bbbf771d22f833d23e34ddad7e3c8b129.patch -O - | git am
 
 # CHROMIUM: cpufreq: interactive: calculate load before freq change
 wget https://github.com/MSF-Jarvis/oneplus3/commit/9c15c5f6cc4475a89ea6eab070c0681d7dcfe62a.patch -O - | git am
@@ -35,9 +47,6 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/8f5350849c8b6b53b876978b81dc6
 
 # cpufreq: interactive: fix to come out of hysteresis mode
 wget https://github.com/MSF-Jarvis/oneplus3/commit/bf0888b058d664fd3e2c36f0918d8c2c5b6fb375.patch -O - | git am
-
-# cpufreq_interactive: Allow hispeed_freq to work with prediction
-wget https://github.com/mady51/gzosp-base/commit/c448615de82427d49ceae35434213d31572f57e1.patch -O - | git am
 
 # cpufreq: interactive: remove hispeed_freq init restriction
 wget https://github.com/MSF-Jarvis/oneplus3/commit/13f30806b5dbff977aa182ea7e15fe904b94c0ef.patch -O - | git am
@@ -167,9 +176,6 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/53f79d9f5ae6e6f96b1c6d95a922e
 # caesium_defconfig: Set westwood as default TCP congestion handler
 wget https://github.com/MSF-Jarvis/oneplus3/commit/152f3300d0a438bfd42b90ce4deddcedda0cd9b1.patch -O - | git am
 
-# enable advanced tcp
-wget https://github.com/mady51/gzosp-base/commit/4e02bc4a213fdcb1f7599b291f1efefb19699366.patch -O - | git am
-
 ##
 
 #
@@ -215,74 +221,7 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/70fbf6056be5035d88833f3b68363
 # block: maple: Use better presets
 wget https://github.com/MSF-Jarvis/oneplus3/commit/ec491c4fc7f17dd491e67a1689aaec782b638db5.patch -O - | git am
 
-# defconfig: enable MAPLE ioshed
-wget https://github.com/mady51/gzosp-base/commit/cf179686f10b51954e4766795fb72ed652847a8e.patch -O - | git am
-
-# Reduce Latency [Pafcholini]
-wget https://github.com/mady51/gzosp-base/commit/d71e0abb32a49b6ca35fe24864a38e404341cf97.patch -O - | git am
-
 ##
-
-#
-## smartmax_eps gov
-#
-
-# Add Smartmax_EPS Governor
-wget https://github.com/mady51/gzosp-base/commit/b70dde38612f9669ef3030e1e45ebd7e9176a037.patch -O - | git am
-
-##
-
-#
-## alucard gov
-#
-
-# Drivers: cpufreq: fix for Alucard gov freqs stuck allways at max
-wget https://github.com/mady51/gzosp-base/commit/148ba5d0b50d8589461a131f97e499190dc13d71.patch -O - | git am
-
-# Drivers: cpufreq: Add Alucard Governor
-wget https://github.com/mady51/gzosp-base/commit/6118639bdd4203579b2b99cf98df8303294f00a4.patch -O - | git am
-
-# Drivers: cpufreq: fix for Alucard gov freqs stuck allways at max
-wget https://github.com/mady51/gzosp-base/commit/eb9716580d4433532c8d363d656233b0faa0696c.patch -O - | git am
-
-# defconfig: enable alucard gov
-wget https://github.com/mady51/gzosp-base/commit/7c85eaf03e7ee15f720e0abc2965d20e6b2d1349.patch -O - | git am
-
-##
-
-#
-## state notifier
-#
-
-# OP3T: Add state notifier driver
-wget https://github.com/mady51/gzosp-base/commit/ffd7ed55a858e3f470904d1a253788cbb73cf35a.patch -O - | git am
-
-# state_notifier: Enable by default
-wget https://github.com/mady51/gzosp-base/commit/e561547272c618ba4d3d3ad5e59e1d94f00f9399.patch -O - | git am
-
-# state_notifier: Queue work on any core
-wget https://github.com/mady51/gzosp-base/commit/4eb7b0baf175a6a8ee00e0ca4165619746667439.patch -O - | git am
-
-# state_notifier: Reduce defer on suspend call to 1 second
-wget https://github.com/mady51/gzosp-base/commit/f490f98df53ae5a5ef9cd25434b26191438f8df0.patch -O - | git am
-
-# state_notifier: Make workqueues unbound
-wget https://github.com/mady51/gzosp-base/commit/b9263d01863cf3353d1bc678eb9f5331974479d2.patch -O - | git am
-
-# state_notifier: Drop unneeded module_param_named entries
-wget https://github.com/mady51/gzosp-base/commit/df8a67d8f4ed4a8290205a4a2b8fb4abe4651f0c.patch -O - | git am
-
-# state_notifier: Remove internal enablement switch
-wget https://github.com/mady51/gzosp-base/commit/c81f74d94657a3ba062f0bf93281035bd5526555.patch -O - | git am
-
-# defconfig: enable state notifier
-wget https://github.com/mady51/gzosp-base/commit/7fe4633c72d87182be44f889ff60bad301e1ccb3.patch -O - | git am
-
-##
-
-# Decrease time to enter sleep [Pafcholini]
-wget https://github.com/mady51/gzosp-base/commit/5d96a1c9c743d01188a6edfbdc52b8198c9ed2c5.patch -O - | git am
-
 
 popd
 
