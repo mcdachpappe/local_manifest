@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://github.com/mady51/gzosp-base
+
 . build/envsetup.sh
 
 read -p "Press ENTER..."
