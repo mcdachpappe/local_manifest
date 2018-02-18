@@ -10,8 +10,17 @@ read -p "Press ENTER..."
 
 pushd kernel/oneplus/msm8996
 
-# Optimize the display effects of SRGB
-wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/3c5ed92281ff8c8a2c0f01c51552df294376bc50
+# cpu: Don't allow CPUs in the power cluster to be unplugged
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/d0864bac7e098b5c33ec48afd34058b7d1c72867
+
+# workqueue: Schedule workers on CPU0 or CPU0/CPU1 by default
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/aaa8027f08740c3a234ebbebee9155d6faf351d5
+
+# clk: msm: clock-cpu-8996: Use CLKFLAG_NO_RATE_CACHE for perfcl_hf_mux
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/710b8e0c67785e0457757204bd3e3653bbca2771
+
+# qcom-cpufreq: Use CLKFLAG_NO_RATE_CACHE
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/e1f3495d88cf1b70288b1c67c32ba233220d4705
 
 # DTS: Enable wakeup events for the volume keys
 wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/56702c010fd6891d4540e5cbbe69d6aa036c62be
@@ -28,31 +37,7 @@ wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/a
 # drivers:usb:gadget: Set product_string for Android Auto
 wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/088c33e014e49a2c7238741c161e3c7bbac453fc
 
-
 ##
-
-# display: add a simple api to query the display state (on/off) at any point in time
-wget https://github.com/MSF-Jarvis/oneplus3/commit/508314f794a38adeb0b807a5ba713691c6a680ac.patch -O - | git am
-
-
-
-# CHROMIUM: cpufreq: interactive: calculate load before freq change
-wget https://github.com/MSF-Jarvis/oneplus3/commit/9c15c5f6cc4475a89ea6eab070c0681d7dcfe62a.patch -O - | git am
-
-# cpufreq: interactive: Remove the jump_to_max hack
-wget https://github.com/MSF-Jarvis/oneplus3/commit/bddddace0e1a7991d7a5d964e22563352af2889f.patch -O - | git am
-
-# cpufreq_interactive: remove boost functionality
-wget https://github.com/MSF-Jarvis/oneplus3/commit/8f5350849c8b6b53b876978b81dc64b811d2542c.patch -O - | git am
-
-# cpufreq: interactive: fix to come out of hysteresis mode
-wget https://github.com/MSF-Jarvis/oneplus3/commit/bf0888b058d664fd3e2c36f0918d8c2c5b6fb375.patch -O - | git am
-
-# cpufreq: interactive: remove hispeed_freq init restriction
-wget https://github.com/MSF-Jarvis/oneplus3/commit/13f30806b5dbff977aa182ea7e15fe904b94c0ef.patch -O - | git am
-
-# cpufreq: interactive: add powersave bias tunable
-wget https://github.com/MSF-Jarvis/oneplus3/commit/4b1e6fa4e12c28f8bb77d2ee9fe621e813a123da.patch -O - | git am
 
 # cpufreq: interactive: add screen off max frequency tunable
 wget https://github.com/MSF-Jarvis/oneplus3/commit/3705f59ea42d2f8a2a016d58c8cb50c5b6ccf20c.patch -O - | git am
@@ -73,15 +58,6 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/747f18716ff1b413bf8cd22f71024
 #
 ## sultanxda patches
 #
-
-# workqueue: Schedule workers on CPU0 or CPU0/CPU1 by default
-wget https://github.com/MSF-Jarvis/oneplus3/commit/c39517d9be33b4f6657a05b5fafef0e2fab85f4f.patch -O - | git am
-
-# kthread: Force all non-percpu kthreads onto the power cluster
-wget https://github.com/MSF-Jarvis/oneplus3/commit/e6a86cd385d371889c791baac563133c60a9f448.patch -O - | git am
-
-# cpu: Don't allow CPUs in the power cluster to be unplugged
-wget https://github.com/MSF-Jarvis/oneplus3/commit/a82187bc1e6a455f2fde6f31c7aa28216befb806.patch -O - | git am
 
 # arm64: Don't force compilation of memlat devfreq governors
 wget https://github.com/MSF-Jarvis/oneplus3/commit/858d2f03ccd9f1b62644553eb751fc2614709974.patch -O - | git am
@@ -116,15 +92,6 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/7d4e83c96e63bb8f78c77daea9443
 #
 ## fp-boost driver
 #
-
-# cpufreq: Introduce fingerprint boost driver
-wget https://github.com/MSF-Jarvis/oneplus3/commit/be91c9edbc8e3bcb0443c89f2100a8904a8a70b9.patch -O - | git am
-
-# fp-boost: Set priority to max
-wget https://github.com/MSF-Jarvis/oneplus3/commit/3abd6543f00108dc624940c88cb362f97cc347b8.patch -O - | git am
-
-# fp-boost: Decrease duration to 2 seconds
-wget https://github.com/MSF-Jarvis/oneplus3/commit/26589ad8bfdea0a2b018c03b370cad9e8a4fee4d.patch -O - | git am
 
 # cpufreq: fp-boost: Don't mess up with normal home key press
 wget https://github.com/MSF-Jarvis/oneplus3/commit/64e45f41d90694b1df0b1a6849d90eaaec259b64.patch -O - | git am
@@ -173,50 +140,11 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/0f1b019699e82bdda1e2d37435988
 # tcp_westwood : Tune-up
 wget https://github.com/MSF-Jarvis/oneplus3/commit/53f79d9f5ae6e6f96b1c6d95a922e148e5cf7b65.patch -O - | git am
 
-# caesium_defconfig: Set westwood as default TCP congestion handler
-wget https://github.com/MSF-Jarvis/oneplus3/commit/152f3300d0a438bfd42b90ce4deddcedda0cd9b1.patch -O - | git am
-
 ##
 
 #
 ## maple scheduler
 #
-
-# block: Add Maple I/O Scheduler
-wget https://github.com/MSF-Jarvis/oneplus3/commit/8c1203706a29e93c813d295a1e9983f85974cc85.patch -O - | git am
-
-# block: maple: Remove CONFIG_HZ dependency, assume 300 for interrupt frequency
-wget https://github.com/MSF-Jarvis/oneplus3/commit/2dd26e75efa358a27d32ced9ec72e9c8481f513a.patch -O - | git am
-
-# block: maple: Clean up and add patchlevel macro to keep track of commits
-wget https://github.com/MSF-Jarvis/oneplus3/commit/e2772c33a69edb725e1f269cf64674d9bd32c23e.patch -O - | git am
-
-# block: maple: Catch writes_starved sooner, increase limit.
-wget https://github.com/MSF-Jarvis/oneplus3/commit/64ee478b70b927ebde1565eea52c249eedf7993a.patch -O - | git am
-
-# block: maple: Fix some logic, import former/latter request logic from SIO, and use some improved bits of SIO
-wget https://github.com/MSF-Jarvis/oneplus3/commit/0a4f44eec57ced3d6af7497c85e952ca6da522a8.patch -O - | git am
-
-# block: maple: Serve asynchronous requests before synchronous ones
-wget https://github.com/MSF-Jarvis/oneplus3/commit/9a3c593803c79924327efc71114320b2422bd1c6.patch -O - | git am
-
-# block: maple: Serve asynchronous requests before synchronous ones
-wget https://github.com/MSF-Jarvis/oneplus3/commit/cfc5b8e48d5bbc9b58dc058d2defab849202a4f0.patch -O - | git am
-
-# block: maple: Make bools constant across functions
-wget https://github.com/MSF-Jarvis/oneplus3/commit/fcc333a4840cd4d14714325118f1238def863551.patch -O - | git am
-
-# block: maple: Fix inverted logic
-wget https://github.com/MSF-Jarvis/oneplus3/commit/4760efa007e281fa2f31de9411f49b7299ad846a.patch -O - | git am
-
-# maple-iosched: Fix the -Wdeclaration-after-statement warnings
-wget https://github.com/MSF-Jarvis/oneplus3/commit/e305ac9cf81822a612155f48e4f000ffb2ef388b.patch -O - | git am
-
-# block: maple: Stop abusing csd.list for fifo_time
-wget https://github.com/MSF-Jarvis/oneplus3/commit/19bbc46b0eddba9ad84fb43c0d96b4e89f813e21.patch -O - | git am
-
-# block: Maple.iosched: Fix Compiler Errors
-wget https://github.com/MSF-Jarvis/oneplus3/commit/70fbf6056be5035d88833f3b68363200394913e3.patch -O - | git am
 
 # block: maple: Use better presets
 wget https://github.com/MSF-Jarvis/oneplus3/commit/ec491c4fc7f17dd491e67a1689aaec782b638db5.patch -O - | git am
