@@ -89,22 +89,22 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/7d4e83c96e63bb8f78c77daea9443
 ## fp-boost driver
 #
 
-# cpufreq: fp-boost: Don't mess up with normal home key press
+# cpufreq: fp-boost: Don't mess up with normal home key press | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/64e45f41d90694b1df0b1a6849d90eaaec259b64.patch -O - | git am
 
-# cpufreq: Enable fingerprint boost by default
+# cpufreq: Enable fingerprint boost by default | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/d86c5ccf012bf205e5bc6b04097bcb38601fd97c.patch -O - | git am
 
-# fp-boost: Avoid unnecessory boost sequence
+# fp-boost: Avoid unnecessory boost sequence | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/c797fec938e478ea64c68fd091689e281794c8f5.patch -O - | git am
 
-# cpufreq:fp-boost: Fix checkpatch warnings
+# cpufreq:fp-boost: Fix checkpatch warnings | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/b69742b6492ee5f7e822efe7a213d4e77a337285.patch -O - | git am
 
-# drivers:cpufreq:fp-boost Add missing newline
+# drivers:cpufreq:fp-boost Add missing newline | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/81564dbd038d1744f28dc46f9970a71221935439.patch -O - | git am
 
-# drivers:cpufreq:fp-boost: Make boost workqueue unbound
+# drivers:cpufreq:fp-boost: Make boost workqueue unbound | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/3d73d73d03fdb88355957c62b655848c2297374c.patch -O - | git am
 
 ##
