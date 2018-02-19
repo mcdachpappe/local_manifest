@@ -12,32 +12,26 @@ read -p "Press ENTER..."
 
 pushd kernel/oneplus/msm8996
 
-# cpu: Don't allow CPUs in the power cluster to be unplugged
-wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/d0864bac7e098b5c33ec48afd34058b7d1c72867
+# clk: msm: clock-cpu-8996: Use CLKFLAG_NO_RATE_CACHE for perfcl_hf_mux | ok
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/710b8e0c67785e0457757204bd3e3653bbca2771.patch -O - | git am
 
-# workqueue: Schedule workers on CPU0 or CPU0/CPU1 by default
-wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/aaa8027f08740c3a234ebbebee9155d6faf351d5
+# qcom-cpufreq: Use CLKFLAG_NO_RATE_CACHE | ok
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/e1f3495d88cf1b70288b1c67c32ba233220d4705.patch -O - | git am
 
-# clk: msm: clock-cpu-8996: Use CLKFLAG_NO_RATE_CACHE for perfcl_hf_mux
-wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/710b8e0c67785e0457757204bd3e3653bbca2771
+# DTS: Enable wakeup events for the volume keys | ok
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/56702c010fd6891d4540e5cbbe69d6aa036c62be.patch -O - | git am
 
-# qcom-cpufreq: Use CLKFLAG_NO_RATE_CACHE
-wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/e1f3495d88cf1b70288b1c67c32ba233220d4705
+# arm: dts: Remove MSM watchdog IPI ping in msm8996 | ok
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/dc5fd93a1151c0baf6e9af1e708708a412959b48.patch -O - | git am
 
-# DTS: Enable wakeup events for the volume keys
-wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/56702c010fd6891d4540e5cbbe69d6aa036c62be
-
-# arm: dts: Remove MSM watchdog IPI ping in msm8996
-wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/dc5fd93a1151c0baf6e9af1e708708a412959b48
-
-# ASoC: core: Don't assign an out-of-bounds address to rtd_aux
-wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/cb5393a5cc74f8ea0af0d836b44021de6033e34c
+# ASoC: core: Don't assign an out-of-bounds address to rtd_aux | ok
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/cb5393a5cc74f8ea0af0d836b44021de6033e34c.patch -O - | git am
 
 # msm: qdsp6v2: Allow 320K AAC encoding
-wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/a2b8534c945fa3e93ab8ec9cf1ec26ea6af2be14
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/a2b8534c945fa3e93ab8ec9cf1ec26ea6af2be14.patch -O - | git am
 
 # drivers:usb:gadget: Set product_string for Android Auto
-wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/088c33e014e49a2c7238741c161e3c7bbac453fc
+wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/088c33e014e49a2c7238741c161e3c7bbac453fc.patch -O - | git am
 
 ##
 
