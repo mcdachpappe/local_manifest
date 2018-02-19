@@ -129,6 +129,9 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/53f79d9f5ae6e6f96b1c6d95a922e
 
 ##
 
+# block: Clean-up maple-iosched.c | ok
+wget https://github.com/MSF-Jarvis/oneplus3/commit/777ad96a459394fa2bdf56343ef5f85c2b9b559c.patch -O - | git am
+
 popd
 
 read -p "Press ENTER..."
