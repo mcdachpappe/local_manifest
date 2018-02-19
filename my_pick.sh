@@ -133,17 +133,8 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/0f1b019699e82bdda1e2d37435988
 ## tcp tweak
 #
 
-# tcp_westwood : Tune-up
+# tcp_westwood : Tune-up | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/53f79d9f5ae6e6f96b1c6d95a922e148e5cf7b65.patch -O - | git am
-
-##
-
-#
-## maple scheduler
-#
-
-# block: maple: Use better presets
-wget https://github.com/MSF-Jarvis/oneplus3/commit/ec491c4fc7f17dd491e67a1689aaec782b638db5.patch -O - | git am
 
 ##
 
