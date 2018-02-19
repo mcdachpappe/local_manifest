@@ -55,34 +55,34 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/747f18716ff1b413bf8cd22f71024
 ## sultanxda patches
 #
 
-# arm64: Don't force compilation of memlat devfreq governors
+# arm64: Don't force compilation of memlat devfreq governors | n-ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/858d2f03ccd9f1b62644553eb751fc2614709974.patch -O - | git am
 
-# ARM: dts: msm8996: Remove redundant CPU bandwidth devfreq devices
+# ARM: dts: msm8996: Remove redundant CPU bandwidth devfreq devices | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/dc06fdf4e471351515da09b2102b4e8abd27c56c.patch -O - | git am
 
-# scsi: ufs: Fix crashes caused by uninitialized completion usage
+# scsi: ufs: Fix crashes caused by uninitialized completion usage | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/d34f869b191e7aeeea37ccd9c8cc9fcbfa7e8849.patch -O - | git am
 
-# PM / devfreq: Add an interface to boost devices when the screen is woken
+# PM / devfreq: Add an interface to boost devices when the screen is woken | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/d792b93c822ce5d7354c040eaeac35ac899abfd6.patch -O - | git am
 
-# PM / devfreq: Boost "624000.ufshc" and "soc:qcom,cpubw" on screen wake
+# PM / devfreq: Boost "624000.ufshc" and "soc:qcom,cpubw" on screen wake | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/c1698c20f7cef5013b8540698281865dcaad3e16.patch -O - | git am
 
-# PM / devfreq: Reduce wake boost duration to 5000 ms
+# PM / devfreq: Reduce wake boost duration to 5000 ms | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/3b56a87ce7336e9b4ef7c785e0b731de720595a8.patch -O - | git am
 
-# PM / devfreq: Don't boost 624000.ufshc on wake
+# PM / devfreq: Don't boost 624000.ufshc on wake | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/824079cdba455e97778b624109a85e2920494685.patch -O - | git am
 
-# PM / devfreq: Remove null termination in boost_devices
+# PM / devfreq: Remove null termination in boost_devices | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/33112f5189ab9cf3f43da7d4f81db8e13002881b.patch -O - | git am
 
-# PM / devfreq: Fix typo that caused an infinite loop
+# PM / devfreq: Fix typo that caused an infinite loop | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/e0da21f454164f160261426dbd3d5839579c7b70.patch -O - | git am
 
-# PM / devfreq: Add a governor white list
+# PM / devfreq: Add a governor white list | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/7d4e83c96e63bb8f78c77daea9443aa3cb174680.patch -O - | git am
 
 #
