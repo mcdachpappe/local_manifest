@@ -27,28 +27,28 @@ wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/d
 # ASoC: core: Don't assign an out-of-bounds address to rtd_aux | ok
 wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/cb5393a5cc74f8ea0af0d836b44021de6033e34c.patch -O - | git am
 
-# msm: qdsp6v2: Allow 320K AAC encoding
+# msm: qdsp6v2: Allow 320K AAC encoding | ok
 wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/a2b8534c945fa3e93ab8ec9cf1ec26ea6af2be14.patch -O - | git am
 
-# drivers:usb:gadget: Set product_string for Android Auto
+# drivers:usb:gadget: Set product_string for Android Auto | n-ok
 wget https://github.com/nitrogen-project/android_kernel_oneplus_msm8996/commit/088c33e014e49a2c7238741c161e3c7bbac453fc.patch -O - | git am
 
 ##
 
-# cpufreq: interactive: add screen off max frequency tunable
+# cpufreq: interactive: add screen off max frequency tunable | n-ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/3705f59ea42d2f8a2a016d58c8cb50c5b6ccf20c.patch -O - | git am
 
 #
 ## msm_performance
 #
 
-# msm_performance: Make input boosting optional
+# msm_performance: Make input boosting optional | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/f8b4df758920d10298c1643bd803a69955ce37a2.patch -O - | git am
 
-# msm: performance: prevent userspace hints to decrease max cpu freq
+# msm: performance: prevent userspace hints to decrease max cpu freq | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/66964ed4eb55661e3b8afdc31743e7f093cb1144.patch -O - | git am
 
-# msm_performance: don't limit min and max cpu freq
+# msm_performance: don't limit min and max cpu freq | ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/747f18716ff1b413bf8cd22f71024195be8aa575.patch -O - | git am
 
 #
