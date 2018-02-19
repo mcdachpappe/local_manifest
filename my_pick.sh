@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# https://github.com/mady51/gzosp-base
-
-. build/envsetup.sh
-
-read -p "Press ENTER..."
-
 ##
 # kernel picks
 ##
@@ -109,24 +103,21 @@ wget https://github.com/MSF-Jarvis/oneplus3/commit/3d73d73d03fdb88355957c62b6558
 
 ##
 
-# qcom-cpufreq: Use cpufreq_table_validate_and_show to fill freq_table
-wget https://github.com/MSF-Jarvis/oneplus3/commit/c5d28484fbb576d5da5467724f9076295d999d53.patch -O - | git am
-
-# qcom-cpufreq: skip frequencies that round to same rate
+# qcom-cpufreq: skip frequencies that round to same rate | n-ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/d7aaf7d9faa858e3ea7b5539679604e447097439.patch -O - | git am
 
 ##
 
-# cpufreq: suspend cpufreq governors on shutdown
+# cpufreq: suspend cpufreq governors on shutdown | n-ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/5daa49b864d89c1d9b970eccfc500d47306558f8.patch -O - | git am
 
-# drivers: cpufreq: Use interruptible waits
+# drivers: cpufreq: Use interruptible waits | n-ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/4cba72b72e1a7853f069f101e6fd421c87472bac.patch -O - | git am
 
-# cpufreq: fallback to interactive if governor is not found
+# cpufreq: fallback to interactive if governor is not found | n-ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/ac4794a85132d8beac62022d458b1e021002cc01.patch -O - | git am
 
-# cpufreq: Restore policy min/max limits on CPU online
+# cpufreq: Restore policy min/max limits on CPU online | n-ok
 wget https://github.com/MSF-Jarvis/oneplus3/commit/0f1b019699e82bdda1e2d374359887c1ea37380e.patch -O - | git am
 
 #
@@ -145,10 +136,3 @@ read -p "Press ENTER..."
 ##
 # end of kernel picks
 ##
-
-# sepolicy: allow ViPER4Android in enforcing mode
-pushd system/sepolicy
-wget https://github.com/mcdachpappe/android_system_sepolicy/commit/f3699c7d3a27a9f2c992f91ca9af2a658375a68e.patch -O - | git am
-popd 
-
-read -p "Press ENTER..."
