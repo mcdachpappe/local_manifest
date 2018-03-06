@@ -1,4 +1,4 @@
-This is the local manifest for mlos/LineageOS cm-14.1 for oneplus3t.
+This is the local manifest for ResurrectionRemix (Oreo) for oneplus3t.
 
 The repo is optimized for oneplus3t and does NOT work
 for oneplus3.
@@ -13,7 +13,7 @@ zz-remove-unused.xml: removes darwin build environment;
                       it's not mandatory, but makes syncs
 		      smaller
 
-my_build.sh: example of a simple build script
+buildrom.sh: example of a simple build script
 
 
 General preperation
@@ -33,39 +33,41 @@ depencies:
 sudo apt install -f
 
 Shell commands:
+
 # get the repo command; put it in some directory in your $PATH
 sudo curl https://storage.googleapis.com/git-repo-downloads/repo -o /usr/local/bin/repo
 sudo chmod a+x /usr/local/bin/repo
-cd /where/you/want/to/your/source-tree
-mkdir -p cm14/my_tmp
-cd cm14
-repo init -u git://github.com/LineageOS/android.git -b cm-14.1 --no-clone-bundle --depth=1
+
+# cd /where/you/want/to/your/source-tree
+mkdir -p rr-6/my_tmp
+cd rr-6
+repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b oreo --no-clone-bundle --depth=1
 cd my_tmp
 git clone https://github.com/mcdachpappe/local_manifest.git
 cd local_manifest
-git checkout cm-14.1
+git checkout rr-6
 cd ../../.repo
 mkdir local_manifests
 cd local_manifests
 ln -s ../../my_tmp/local_manifest/oneplus3t.xml .
-ln -s ../../my_tmp/local_manifest/nlos.xml .
 ln -s ../../my_tmp/local_manifest/zz-remove-unused.xml .
 cd ../..
-ln -s build/core/root.mk ./Makefile
-ln -s my_tmp/local_manifest/my_build.sh ./my-build
-ln -s my_tmp/local_manifest/my_pick.sh ./my-pick
-ln -s my_tmp/local_manifest/my_reset.sh ./my-reset
+# ln -s build/core/root.mk ./Makefile
+ln -s my_tmp/local_manifest/buildrom.sh ./buildrom
+ln -s my_tmp/local_manifest/kernelpick.sh ./kernel-pick
+ln -s my_tmp/local_manifest/rompick.sh ./rom-pick
+ln -s my_tmp/local_manifest/reset.sh ./reset
 
 
 Syncing (aka download) the sources
 ----------------------------------
 
 Shell command:
-#this takes some time; it's about 52GB to fetch
-repo sync -j4 --no-clone-bundle --no-tags --optimized-fetch --prune
+#this takes some time; it's about 26GB to fetch
+repo sync -f --force-sync -j6 --no-clone-bundle --no-tags --optimized-fetch --prune
 
 When the sync has finished, adjust TARGET_UNOFFICIAL_BUILD_ID
-in device/oneplus/oneplus3t/lineage.mk
+in device/oneplus/oneplus3/rr.mk
 
 
 Building LineageOS
@@ -75,7 +77,7 @@ Shell command:
 ./my-build
 
 If everything worked wirhout errors, you will get a flashable zip in
-out/target/product/oneplus3t/
+out/target/product/oneplus3/
 
 If not, check make.log for errors.
 
