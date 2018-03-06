@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# if you want to build without using ccache, comment
-# the next 4 lines
+# if you want to build without using ccache, comment the next 4 lines
 export USE_CCACHE=1
 export CCACHE_DIR=/mnt/hgfs/Android/.ccache
 export CCACHE_MAX_SIZE=50G
