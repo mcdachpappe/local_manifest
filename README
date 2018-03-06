@@ -1,7 +1,4 @@
-This is the local manifest for ResurrectionRemix (Oreo) for oneplus3t.
-
-The repo is optimized for oneplus3t and does NOT work
-for oneplus3.
+This is the local manifest for ResurrectionRemix v6.0.0 (Oreo) for oneplus3t.
 
 git clone this wherever you want and make symblic links
 to .repo/local_manifest for xml file/files.
@@ -54,8 +51,8 @@ ln -s ../../my_tmp/local_manifest/zz-remove-unused.xml .
 cd ../..
 # ln -s build/core/root.mk ./Makefile
 ln -s my_tmp/local_manifest/buildrom.sh ./buildrom
-ln -s my_tmp/local_manifest/kernelpick.sh ./kernel-pick
-ln -s my_tmp/local_manifest/rompick.sh ./rom-pick
+ln -s my_tmp/local_manifest/kernelpick.sh ./kernelpick
+ln -s my_tmp/local_manifest/rompick.sh ./rompick
 ln -s my_tmp/local_manifest/reset.sh ./reset
 
 
