@@ -8,6 +8,9 @@ read -p "Press ENTER..."
 
 pushd device/oneplus/oneplus3
 
+# BoardConfig: use gcc 7.3.1 for caesium kernel
+wget https://github.com/mcdachpappe/rr_device_oneplus_oneplus3t/commit/f5cc9e28958327a2eac8e96a1f2c191bf7c946fb.patch -O - | git am
+
 # op3t: init: allow the gpu to drop to 133 MHz on idle on op3t/sd821
 wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/c18d31e22516e3b86140d47f94ca57832a7769d0.patch -O - | git am
 
