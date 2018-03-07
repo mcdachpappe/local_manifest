@@ -1,12 +1,14 @@
 #!/bin/bash
 
+. build/envsetup.sh
+
+read -p "Press ENTER..."
+
 ##
 # kernel picks
 ##
 
-cd /home/danny/android/kernel
-
-## MADY
+pushd kernel/oneplus/msm8996
 
 # qpnp-smbcharger: Bring in select fixes from Xiaomi
 wget https://github.com/mady51/gzosp-base/commit/ace9074d7542483dcbe06278452382ce82fcc20e.patch -O - | git am
@@ -132,12 +134,12 @@ wget https://github.com/mcdachpappe/oneplus3/commit/8d0583366cc658a97eecdecbb3ad
 # qcom: mpm: use interruptible wait to reduce load avg
 wget https://github.com/mady51/gzosp-base/commit/3e033fd067a46c7de86fe89a104a6808979d805f.patch -O - | git am
 
-##
-
 # arm64: strcmp: Align to cache and preload
 wget https://github.com/mady51/gzosp-base/commit/499a5005fa13071a7306b9435f2b4ea07ea73fac.patch -O - | git am
 
 ##
+
+popd
 
 read -p "Press ENTER..."
 
