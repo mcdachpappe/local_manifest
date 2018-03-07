@@ -1,33 +1,35 @@
-This is the local manifest for ResurrectionRemix v6.0.0 (Oreo) for oneplus3t.
+This is the local manifest for ResurrectionRemix v6.0.0 (Oreo) for oneplus3/t.
 
-git clone this wherever you want and make symblic links
-to .repo/local_manifest for xml file/files.
+git clone this wherever you want and make symblic links to .repo/local_manifest for xml file/files.
 
-oneplus3t.xml: imports all neccessary files (including
-               blobs and toolchains) to build laos for op3t
+oneplus3t.xml: imports all neccessary files (including blobs and toolchains) to build laos for op3t
 
-zz-remove-unused.xml: removes darwin build environment;
-                      it's not mandatory, but makes syncs
-		      smaller
+zz-remove-unused.xml: removes darwin build environment; it's not mandatory, but makes syncs smaller
 
+rompick.sh: example of a simple script to apply some patches
 buildrom.sh: example of a simple build script
+reset.sh: example of a simple script to clean your repo/base
 
 
 General preperation
 -------------------
+os:
+Ubuntu 14.04.05 recommended!
 
+changing machine name:
 https://askubuntu.com/questions/9540/how-do-i-change-the-computer-name
 
 libaries:
 sudo apt-get install bc bison build-essential curl ccache flex g++-multilib gcc-multilib gksu gnupg gperf git imagemagick lib32ncurses5-dev lib32readline6-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush repo rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
 
-jdk8:
+java jdk8:
 sudo apt-get update
 sudo apt-get install openjdk-8-jdk
 sudo apt-get upgrade
 
 depencies:
 sudo apt install -f
+
 
 Shell commands:
 
@@ -38,7 +40,7 @@ sudo chmod a+x /usr/local/bin/repo
 # cd /where/you/want/to/your/source-tree
 mkdir -p rr-6/my_tmp
 cd rr-6
-repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b oreo --no-clone-bundle --depth=1
+repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b oreo --no-clone-bundle --no-tags --depth=1 --optimized-fetch
 cd my_tmp
 git clone https://github.com/mcdachpappe/local_manifest.git
 cd local_manifest
@@ -46,7 +48,7 @@ git checkout rr-6
 cd ../../.repo
 mkdir local_manifests
 cd local_manifests
-ln -s ../../my_tmp/local_manifest/rr_oneplus3t.xml .
+ln -s ../../my_tmp/local_manifest/oneplus3t.xml .
 ln -s ../../my_tmp/local_manifest/zz-remove-unused.xml .
 cd ../..
 # ln -s build/core/root.mk ./Makefile
@@ -60,18 +62,18 @@ Syncing (aka download) the sources
 ----------------------------------
 
 Shell command:
-#this takes some time; it's about 26GB to fetch
-repo sync -f --force-sync -j6 --no-clone-bundle --no-tags --optimized-fetch --prune
+# this takes some time; it's about 26GB to fetch
+repo sync -j6 -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
 When the sync has finished, adjust TARGET_UNOFFICIAL_BUILD_ID
 in device/oneplus/oneplus3/rr.mk
 
 
-Building LineageOS
-------------------
+Building ResurecctionRemix v6.0.0
+---------------------------------
 
 Shell command:
-./my-build
+./buildrom
 
 If everything worked wirhout errors, you will get a flashable zip in
 out/target/product/oneplus3/
