@@ -2,6 +2,8 @@
 
 . build/envsetup.sh
 
+read -p "Press ENTER..."
+
 ##
 
 pushd device/oneplus/oneplus3
@@ -61,6 +63,15 @@ pushd vendor/oneplus
 
 # Add OnePlus 3/3T Front Camera Fix by defcomg
 wget https://github.com/FraEgg/proprietary_vendor_oneplus/commit/5b271cd07aa2b085ef9246ad8479c5ad3fe33d46.patch -O - | git am
+
+popd
+
+read -p "Press ENTER..."
+
+pushd system/sepolicy
+
+# sepolicy: allow ViPER4Android in enforcing mode
+wget https://github.com/mcdachpappe/android_system_sepolicy-rr/commit/903ec248bf4d129b3ca76b59a95d3bcfbf54c89f.patch -O - | git am
 
 popd
 
