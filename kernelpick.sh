@@ -138,26 +138,20 @@ wget https://github.com/mady51/gzosp-base/commit/3e033fd067a46c7de86fe89a104a680
 wget https://github.com/mady51/gzosp-base/commit/499a5005fa13071a7306b9435f2b4ea07ea73fac.patch -O - | git am
 
 ##
-# noch testen
+# mady again
 ##
 
-# Optimize copy_page for modern ARM platforms
-# wget https://github.com/mady51/gzosp-base/commit/fffe8f7ae5dd94c5418e8be25a66034c70081518.patch -O - | git am
-
 # power:qpnp-charger: extended charge time from 30s to 100s when battery status is near to full
-# wget https://github.com/mady51/gzosp-base/commit/a3e52ff8ecbdb6fc3d3274422b52579dfcc1af97.patch -O - | git am
+wget https://github.com/mady51/gzosp-base/commit/a3e52ff8ecbdb6fc3d3274422b52579dfcc1af97.patch -O - | git am
 
 # workqueue: add cancel_work()
-# wget https://github.com/mady51/gzosp-base/commit/8fa6f43026cab92601d8b2bb3a05f33bcceb0916.patch -O - | git am
+wget https://github.com/mady51/gzosp-base/commit/8fa6f43026cab92601d8b2bb3a05f33bcceb0916.patch -O - | git am
 
 # workqueue: Implement delayed_work_busy()
-# wget https://github.com/mady51/gzosp-base/commit/dab9b56470d47a3e95365cf4e276c8813c3d020b.patch -O - | git am
+wget https://github.com/mady51/gzosp-base/commit/dab9b56470d47a3e95365cf4e276c8813c3d020b.patch -O - | git am
 
 # workqueue: Remove config guard for power_efficient
-# wget https://github.com/mady51/gzosp-base/commit/8916fc94a0e31fedde709eb2697c4ceaaf598b3f.patch -O - | git am
-
-# qpnp-smbcharger: Publish charger voltage to the usb psy
-# wget https://github.com/mady51/gzosp-base/commit/abf2b56fced4310a70e44490832c4259570f054f.patch -O - | git am
+wget https://github.com/mady51/gzosp-base/commit/8916fc94a0e31fedde709eb2697c4ceaaf598b3f.patch -O - | git am
 
 popd
 
