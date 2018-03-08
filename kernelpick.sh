@@ -1,9 +1,5 @@
 #!/bin/bash
 
-. build/envsetup.sh
-
-read -p "Press ENTER..."
-
 ##
 # kernel picks
 ##
@@ -154,8 +150,6 @@ wget https://github.com/mady51/gzosp-base/commit/dab9b56470d47a3e95365cf4e276c88
 wget https://github.com/mady51/gzosp-base/commit/8916fc94a0e31fedde709eb2697c4ceaaf598b3f.patch -O - | git am
 
 popd
-
-read -p "Press ENTER..."
 
 ##
 # end of kernel picks
