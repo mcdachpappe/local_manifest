@@ -85,17 +85,3 @@ popd
 read -p "Press ENTER..."
 
 ##
-
-pushd frameworks/base
-
-# storage: Set all sdcards to visible
-wget https://github.com/nvertigo/android_frameworks_base/commit/48dc2e83accb27b99c8a713b95988c25111c392b.patch -O - | git am
-
-# BatteryService: add dash charging support
-https://github.com/nvertigo/android_frameworks_base/commit/00f1b70bdcb43b02e6dece45e8d0cbeb8cb90761.patch -O - | git am
-
-popd
-
-read -p "Press ENTER..."
-
-##
