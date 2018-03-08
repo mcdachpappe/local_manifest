@@ -115,7 +115,9 @@ wget https://github.com/mcdachpappe/oneplus3/commit/2d7e9a540e22900336e0f0d941a7
 wget https://github.com/mcdachpappe/oneplus3/commit/0c244616bf0482c4dc7db7bd6bfc5da2336983b8.patch -O - | git am
 
 # block: add zen scheduler
+# CONFIG_IOSCHED_MAPLE=y
 # CONFIG_IOSCHED_ZEN=y
+# # CONFIG_DEFAULT_MAPLE is not set
 # # CONFIG_DEFAULT_ZEN is not set
 wget https://github.com/mcdachpappe/oneplus3/commit/a62ab4023b34fb1fb8b022eaa5f71288c2f7a046.patch -O - | git am
 
