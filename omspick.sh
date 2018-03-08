@@ -1,11 +1,7 @@
 #!/bin/bash
 
-. build/envsetup.sh
-
-read -p "Press ENTER..."
-
 ##
-# oms
+# oms picks
 ##
 
 pushd build/make
