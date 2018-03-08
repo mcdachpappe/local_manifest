@@ -14,6 +14,6 @@
   <project name="TheMuppets/proprietary_vendor_oneplus" path="vendor/oneplus" remote="github" revision="lineage-15.1" />
 
   <!-- Custom -->
-  <project name="FraEgg/android_packages_apps_luis" path="packages/apps/luis" remote="github" revision="oreo" />
+  <!-- <project name="FraEgg/android_packages_apps_luis" path="packages/apps/luis" remote="github" revision="oreo" />  -->
 
 </manifest>
