@@ -1,13 +1,9 @@
 #!/bin/bash
 
-. build/envsetup.sh
-
-read -p "Press ENTER..."
-
 pushd device/oneplus/oneplus3
 
 ##
-# nvertigo
+# device picks
 ##
 
 # op3t: init: allow the gpu to drop to 133 MHz on idle on op3t/sd821
@@ -87,4 +83,6 @@ popd
 
 read -p "Press ENTER..."
 
+##
+# end of device picks
 ##
