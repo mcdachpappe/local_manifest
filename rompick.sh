@@ -4,21 +4,17 @@
 
 read -p "Press ENTER..."
 
-##
-
 pushd device/oneplus/oneplus3
 
-# BoardConfig: use gcc 7.3.1 for caesium kernel
-wget https://github.com/mcdachpappe/rr_device_oneplus_oneplus3t/commit/f5cc9e28958327a2eac8e96a1f2c191bf7c946fb.patch -O - | git am
+##
+# nvertigo
+##
 
 # op3t: init: allow the gpu to drop to 133 MHz on idle on op3t/sd821
 wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/c18d31e22516e3b86140d47f94ca57832a7769d0.patch -O - | git am
 
 # AAPT: adjust config to the physical abillities of 3t's display
 wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/a9ceb79571015653de8ed6f6556b159def479c5c.patch -O - | git am
-
-# op3: Indicate that this device has Dash Charge
-# wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/ac9f9e97d295696564018370e6aee29e0d24aad1.patch -O - | git am
 
 # op3t: gps: XTRA: use https and check for version 3
 wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/902b33cdf10d96ee8f6a14aeaef70d4b11859186.patch -O - | git am
@@ -46,6 +42,13 @@ wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/9e254ee
 
 # op3/t: overlay: Make "Turn on WiFi Automatically" available
 wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/92d1e1fbd4646ecf977682a37b698123855b45a8.patch -O - | git am
+
+##
+# mcd
+##
+
+# BoardConfig: use gcc 7.3.1 for caesium kernel
+wget https://github.com/mcdachpappe/rr_device_oneplus_oneplus3t/commit/f5cc9e28958327a2eac8e96a1f2c191bf7c946fb.patch -O - | git am
 
 popd
 
