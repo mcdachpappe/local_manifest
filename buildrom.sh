@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # setting up ccache to speed up building time
-export USE_CCACHE=1
-export CCACHE_DIR=/home/$USER/.ccache
-export CCACHE_MAX_SIZE=20G
-ccache -M $CCACHE_MAX_SIZE
+# export USE_CCACHE=1
+# export CCACHE_DIR=/home/$USER/.ccache
+# export CCACHE_MAX_SIZE=20G
+# ccache -M $CCACHE_MAX_SIZE
 
 # encapsulate the build's temp directory.
 # This way it's easier to clean up afterwards
