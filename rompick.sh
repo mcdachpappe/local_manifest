@@ -1,10 +1,15 @@
 #!/bin/bash
 
+# . build/envsetup.sh
+
 pushd device/oneplus/oneplus3
 
 ##
-# device picks
+# nvertigo
 ##
+
+# op3: Address ANT+ denial
+wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/baa84c8f0a26077b1cfe7eac2ca1cb40a6a2768b.patch -O - | git am
 
 # op3t: init: allow the gpu to drop to 133 MHz on idle on op3t/sd821
 wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/c18d31e22516e3b86140d47f94ca57832a7769d0.patch -O - | git am
@@ -30,14 +35,8 @@ wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/7ef55f2
 # op3/t: sepolicy: allow system apps to call wificond:binder
 wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/001ca7122e5fc7925395ba807f71eadf08e42fe6.patch -O - | git am
 
-# op3: Build LiveDisplay HAL (Patchset 7)
-wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/f005dd6ff6e73bb57c19dba0a3e5d7e9d1212673.patch -O - | git am
-
 # op3/t: cosmetics: remove executable bit from init.qcom.usb.rc and init.target.rc
 wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/9e254ee78aa2b3ef72c3c58406339f9d28b9841f.patch -O - | git am
-
-# op3/t: overlay: Make "Turn on WiFi Automatically" available
-wget https://github.com/nvertigo/android_device_oneplus_oneplus3t/commit/92d1e1fbd4646ecf977682a37b698123855b45a8.patch -O - | git am
 
 ##
 # mcd
@@ -48,18 +47,23 @@ wget https://github.com/mcdachpappe/rr_device_oneplus_oneplus3t/commit/f5cc9e289
 
 popd
 
-read -p "Press ENTER..."
-
 ##
 
 pushd device/oppo/common
 
-# [PATCH] Notification slider: add extra options
-wget https://github.com/mcdachpappe/android_device_oppo_common/commit/ddb0367a6d65190585f8ad0285cd8349c7f65a61.patch -O - | git am
+# Notification slider: add extra options
+wget https://github.com/mcdachpappe/android_device_oppo_common/commit/5615905126d3ef21440e5d80a7f73bd29980dadc.patch -O - | git am
 
 popd
 
-read -p "Press ENTER..."
+##
+
+pushd packages/apps/LineageParts
+
+# Revert "LineageParts: Update the way OMS records details about overlays"
+wget https://github.com/ResurrectionRemix/packages_apps_LineageParts/commit/a8dc4c4f6100a3c46d608ac44e247570aa45c628.patch -O - | git am
+
+popd
 
 ##
 
@@ -70,19 +74,6 @@ wget https://github.com/FraEgg/proprietary_vendor_oneplus/commit/5b271cd07aa2b08
 
 popd
 
-read -p "Press ENTER..."
-
 ##
-
-pushd system/sepolicy
-
-# sepolicy: allow ViPER4Android in enforcing mode
-wget https://github.com/mcdachpappe/android_system_sepolicy-rr/commit/903ec248bf4d129b3ca76b59a95d3bcfbf54c89f.patch -O - | git am
-
-popd
-
-read -p "Press ENTER..."
-
-##
-# end of device picks
+# end of rom picks
 ##
