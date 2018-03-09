@@ -2,7 +2,7 @@ This is the local manifest for ResurrectionRemix v6.0.0 (Oreo) for oneplus3/t.
 
 git clone this wherever you want and make symblic links to .repo/local_manifest for xml file/files.
 
-oneplus3t.xml: imports all neccessary files (including blobs and toolchains) to build laos for op3t
+oneplus3.xml: imports all neccessary files (including blobs and toolchains) to build laos for op3t
 
 zz-remove-unused.xml: removes darwin build environment; it's not mandatory, but makes syncs smaller
 
