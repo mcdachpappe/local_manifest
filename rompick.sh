@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# . build/envsetup.sh
-
 pushd device/oneplus/oneplus3
 
 ##
