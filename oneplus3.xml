@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- OnePlus -->
+  <project name="ResurrectionRemix-Devices/device_oneplus_oneplus3" path="device/oneplus/oneplus3" remote="github" revision="oreo" />
+  <project name="LineageOS/android_device_oppo_common" path="device/oppo/common" remote="github" revision="lineage-15.1" />
+  <project name="MSF-Jarvis/oneplus3" path="kernel/oneplus/msm8996" remote="github" revision="XOS-8.1" />
+  
+  <!-- General -->
+  <project name="LineageOS/android_device_qcom_common" path="device/qcom/common" remote="github" revision="lineage-15.1" />
+  <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" revision="lineage-15.1" />
+
+  <!-- Vendor -->
+  <project name="TheMuppets/proprietary_vendor_oneplus" path="vendor/oneplus" remote="github" revision="lineage-15.1" />
+
+  <!-- Custom -->
+  <!-- <project name="FraEgg/android_packages_apps_luis" path="packages/apps/luis" remote="github" revision="oreo" />  -->
+
+</manifest>
