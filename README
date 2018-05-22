@@ -2,84 +2,89 @@ This is the local manifest for ResurrectionRemix v6.0.0 (Oreo) for oneplus3/t.
 
 git clone this wherever you want and make symblic links to .repo/local_manifest for xml file/files.
 
-oneplus3t.xml: imports all neccessary files (including blobs and toolchains) to build laos for op3t
+# Some explanation:
+  oneplus3t.xml: imports all neccessary files (including blobs and toolchains) to build rr for op3/t
+  zz-remove-unused.xml: removes darwin build environment; it's not mandatory, but makes syncs smaller
 
-zz-remove-unused.xml: removes darwin build environment; it's not mandatory, but makes syncs smaller
-
-rompick.sh: example of a simple script to apply some patches
-buildrom.sh: example of a simple build script
-reset.sh: example of a simple script to clean your repo/base
-
-
-General preperation
--------------------
-os:
-Ubuntu 14.04.05 recommended!
-
-changing machine name:
-https://askubuntu.com/questions/9540/how-do-i-change-the-computer-name
-
-libaries:
-sudo apt-get install git-core ccache curl gnupg flex bison gperf libsdl1.2-dev libesd0-dev libwxgtk2.8-dev squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev openjdk-8-jre openjdk-8-jdk pngcrush schedtool libxml2 libxml2-utils xsltproc lzop libc6-dev schedtool g++-multilib lib32z1-dev lib32ncurses5-dev lib32readline-gplv2-dev gcc-multilib maven tmux screen w3m ncftp
-# sudo apt-get install bc bison build-essential curl ccache flex g++-multilib gcc-multilib gksu gnupg gperf git imagemagick lib32ncurses5-dev lib32readline6-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
-
-# nautilus
-sudo apt-get install nautilus-open-terminal
-nautilus -q
-
-java jdk8:
-sudo add-apt-repository ppa:openjdk-r/ppa
-sudo apt-get update
-sudo apt-get install openjdk-8-jdk
-sudo apt-get upgrade
-
-depencies:
-sudo apt install -f
+  rompick.sh: example of a simple script to apply some patches (rom)
+  kernelpick.sh: example of a simple script to apply some patches (kernel)
+  buildrom.sh: example of a simple build script (rom)
+  buildkernel.sh: example of a simple build script (kernel)
+  reset.sh: example of a simple script to clean your repo/base
+  anykernel.sh: example of a simple script to turn your kernel file into a flashable .zip
 
 
-Shell commands:
+#######################
+# General preperation #
+#######################
+
+# os: Ubuntu 14.04.05 recommended!
+  NOTE: not anymore, Ubuntu 18.04 works fine as well
+
+# required libaries:
+  $ sudo apt-get update && sudo apt-get install automake bc bin86 bison build-essential bzip2 ccache curl flex g++-multilib gcc-multilib git git-core gksu gnupg gperf imagemagick kernel-package lib32ncurses5-dev lib32readline6-dev lib32readline-gplv2-dev libbz2-dev libbz2-1.0 libc6-dev libghc-bzlib-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libncurses5 libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop make maven ncftp openjdk-8-jre openjdk-8-jdk pngcrush rsync tmux qt4-dev-tools schedtool screen squashfs-tools w3m xsltproc zip zlib1g-dev zlib1g-dev:i386
+
+# depencies:
+  sudo apt install -f
+
+# if you are using Ubuntu 14.04.05: try this nautilus from newer versions
+  sudo apt-get install nautilus-open-terminal
+  nautilus -q
+
+# if you are using Ubuntu 14.04.05: manually add java jdk8:
+  sudo add-apt-repository ppa:openjdk-r/ppa
+  sudo apt-get update
+  sudo apt-get install openjdk-8-jdk
+  sudo apt-get upgrade
+
+# optional: changing machine name:
+  https://askubuntu.com/questions/9540/how-do-i-change-the-computer-name
+
+###################
+# Shell commands: #
+###################
 
 # get the repo command; put it in some directory in your $PATH
-sudo curl https://storage.googleapis.com/git-repo-downloads/repo -o /usr/local/bin/repo
-sudo chmod a+x /usr/local/bin/repo
+  sudo curl https://storage.googleapis.com/git-repo-downloads/repo -o /usr/local/bin/repo
+  sudo chmod a+x /usr/local/bin/repo
 
 # cd /where/you/want/to/your/source-tree
-mkdir -p rr-6/my_tmp
-cd rr-6
-repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b oreo --no-clone-bundle --depth=1
-cd my_tmp
-git clone https://github.com/mcdachpappe/local_manifest.git
-cd local_manifest
-git checkout rr-6
-cd ../../.repo
-mkdir local_manifests
-cd local_manifests
-ln -s ../../my_tmp/local_manifest/oneplus3.xml .
-ln -s ../../my_tmp/local_manifest/zz-remove-unused.xml .
-cd ../..
-ln -s my_tmp/local_manifest/buildrom.sh ./buildrom
-ln -s my_tmp/local_manifest/kernelpick.sh ./kernelpick
-ln -s my_tmp/local_manifest/rompick.sh ./rompick
-ln -s my_tmp/local_manifest/omspick.sh ./omspick
-ln -s my_tmp/local_manifest/reset.sh ./reset
+  mkdir -p rr-6/my_tmp
+  cd rr-6
+  repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b oreo --no-clone-bundle --depth=1
+  cd my_tmp
+  git clone https://github.com/mcdachpappe/local_manifest.git
+  cd local_manifest
+  git checkout rr-6
+  cd ../../.repo
+  mkdir local_manifests
+  cd local_manifests
+  ln -s ../../my_tmp/local_manifest/oneplus3.xml .
+  ln -s ../../my_tmp/local_manifest/zz-remove-unused.xml .
+  cd ../..
+  ln -s my_tmp/local_manifest/buildrom.sh ./buildrom
+  ln -s my_tmp/local_manifest/buildkernel.sh ./buildkernel
+  ln -s my_tmp/local_manifest/rompick.sh ./rompick
+  ln -s my_tmp/local_manifest/kernelpick.sh ./kernelpick
+  ln -s my_tmp/local_manifest/reset.sh ./reset
+  ln -s my_tmp/local_manifest/anykernel.sh ./anykernel
 
 
-Syncing (aka download) the sources
-----------------------------------
+######################################
+# Syncing (aka download) the sources #
+######################################
 
-Shell command:
-# this takes some time; it's about 26GB to fetch
-repo sync -j6 -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
-
-When the sync has finished, adjust TARGET_UNOFFICIAL_BUILD_ID
-in device/oneplus/oneplus3/rr.mk
+# Shell command:
+# this takes some time; it's about 70GB to fetch
+  repo sync -j6 -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
 
-Building ResurecctionRemix v6.0.0
----------------------------------
+######################################
+# Building ResurecctionRemix v6.0.0 #
+#####################################
 
-Shell command:
-./buildrom
+# Shell command:
+  ./buildrom
 
 If everything worked wirhout errors, you will get a flashable zip in
 out/target/product/oneplus3/
@@ -88,4 +93,3 @@ If not, check make.log for errors.
 
 Congrats, you have just build your own rom!
 
-Happy flashing!
