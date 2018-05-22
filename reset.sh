@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 RED="\033[01;31m"
 RESTORE="\033[0m"
