@@ -1,4 +1,4 @@
-This is the local manifest for ResurrectionRemix v6.0.0 (Oreo) for oneplus3/t.
+This is the local manifest for MSM-Xtended for oneplus3/t.
 
 git clone this wherever you want and make symblic links to .repo/local_manifest for xml file/files.
 
@@ -18,8 +18,8 @@ git clone this wherever you want and make symblic links to .repo/local_manifest 
 # General preperation #
 #######################
 
-# os: Ubuntu 14.04.05 recommended!
-  NOTE: not anymore, Ubuntu 18.04 works fine as well
+# os: 
+  Ubuntu 18.04
 
 # required libaries:
   $ sudo apt-get update && sudo apt-get install automake bc bin86 bison build-essential bzip2 ccache curl flex g++-multilib gcc-multilib git git-core gksu gnupg gperf imagemagick kernel-package lib32ncurses5-dev lib32readline6-dev lib32readline-gplv2-dev libbz2-dev libbz2-1.0 libc6-dev libghc-bzlib-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libncurses5 libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop make maven ncftp openjdk-8-jre openjdk-8-jdk pngcrush rsync tmux qt4-dev-tools schedtool screen squashfs-tools w3m xsltproc zip zlib1g-dev zlib1g-dev:i386
@@ -27,18 +27,11 @@ git clone this wherever you want and make symblic links to .repo/local_manifest 
 # depencies:
   sudo apt install -f
 
-# if you are using Ubuntu 14.04.05: try this nautilus from newer versions
-  sudo apt-get install nautilus-open-terminal
-  nautilus -q
-
-# if you are using Ubuntu 14.04.05: manually add java jdk8:
-  sudo add-apt-repository ppa:openjdk-r/ppa
+# add java jdk8:
   sudo apt-get update
   sudo apt-get install openjdk-8-jdk
   sudo apt-get upgrade
 
-# optional: changing machine name:
-  https://askubuntu.com/questions/9540/how-do-i-change-the-computer-name
 
 ###################
 # Shell commands: #
@@ -49,13 +42,13 @@ git clone this wherever you want and make symblic links to .repo/local_manifest 
   sudo chmod a+x /usr/local/bin/repo
 
 # cd /where/you/want/to/your/source-tree
-  mkdir -p rr-6/my_tmp
+  mkdir -p msmx/my_tmp
   cd rr-6
-  repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b oreo --no-clone-bundle --depth=1
+  repo init -u https://github.com/Project-Xtended/manifest.git -b xtended
   cd my_tmp
   git clone https://github.com/mcdachpappe/local_manifest.git
   cd local_manifest
-  git checkout rr-6
+  git checkout msmx
   cd ../../.repo
   mkdir local_manifests
   cd local_manifests
@@ -76,20 +69,21 @@ git clone this wherever you want and make symblic links to .repo/local_manifest 
 
 # Shell command:
 # this takes some time; it's about 70GB to fetch
-  repo sync -j6 -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
+  repo sync -j8 -c -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
 
-######################################
-# Building ResurecctionRemix v6.0.0 #
-#####################################
+########################
+# Building MSM-Xtended #
+########################
 
 # Shell command:
   ./buildrom
 
 If everything worked wirhout errors, you will get a flashable zip in
-out/target/product/oneplus3/
+  out/target/product/oneplus3/
 
 If not, check make.log for errors.
+
 
 Congrats, you have just build your own rom!
 
