@@ -14,9 +14,10 @@ TEMP=$TMP
 
 export TMP TMPDIR TEMP
 
-#make sure jack-server is restarted in TMP
+# make sure jack-server is restarted in TMP
 prebuilts/sdk/tools/jack-admin kill-server
-export ANDROID_JACK_VM_ARGS="-Xmx6g -Dfile.encoding=UTF-8 -XX:+TieredCompilation"
+export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx6g"
+export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx6g"
 
 # we want all compiler messages in English
 export LANG=C
