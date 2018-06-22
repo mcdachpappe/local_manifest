@@ -5,12 +5,12 @@ RESTORE="\033[0m"
 
 make clean
 
-repo sync -j12 -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
+repo sync -j16 -c -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
 repo forall -c git reset --hard
 repo forall -c git clean -f
 
-repo sync -j12 --prune -d
+repo sync -j16 -c --prune -d
 
 repo status
 
