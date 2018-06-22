@@ -1,33 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-	<!-- Github remote -->
-	<remote name="github"
-	    fetch="https://github.com/"
-	    sync-j="16" />
+    <!-- Github remote -->
+    <remote name="github"
+	fetch="https://github.com/"
+	sync-f="true"
+	sync-c="true"
+	sync-j="16" />
 
-	<!-- Custom remotes -->
-	<remote name="mcd"
-	    fetch="https://github.com/mcdachpappe"
-	    sync-j="16" />
-	
-	<remote name="nos"
-            fetch="https://github.com/nitrogen-project"
-            sync-j="16" />
+    <!-- Custom remotes -->
+    <remote name="mcd"
+	fetch="https://github.com/mcdachpappe"
+	sync-f="true"
+	sync-c="true"
+	sync-j="16" />
 
-	<!-- OnePlus -->
-	<project path="device/oneplus/oneplus3" name="android_device_oneplus_oneplus3-msmx" remote="mcd" revision="mcd" />
-	<project path="kernel/oneplus/msm8996" name="android_kernel_oneplus_msm8996-mady" remote="mcd" revision="mcd" />
-	<project path="vendor/oneplus" name="proprietary_vendor_oneplus" remote="nos" revision="o2" />
+    <remote name="mady"
+	fetch="https://github.com/mady51"
+	sync-f="true"
+	sync-c="true"
+	sync-j="16" />
 
-	<!-- Custom
-	<remove-project name="Project-Xtended/frameworks_native" />
-	<project path="frameworks/native" name="android_frameworks_native" remote="mcd" revision="mcd" />
+    <remote name="msmx"
+	fetch="https://github.com/SuperDroidBond"
+	sync-f="true"
+	sync-c="true"
+	sync-j="16" />
 
-	<remove-project name="Project-Xtended/frameworks_base" />
-	<project path="frameworks/base" name="android_frameworks_base-msmx" remote="mcd" revision="mcd" />
+    <remote name="nos"
+	fetch="https://github.com/nitrogen-project"
+	sync-f="true"
+	sync-c="true"
+	sync-j="16" />
 
-	<remove-project name="Project-Xtended/packages_apps_Settings" />
-	<project path="packages/apps/Settings" name="android_packages_apps_Settings-msmx" remote="mcd" revision="mcd" />  -->
+    <!-- OnePlus 3/t -->
+    <project path="device/oneplus/oneplus3" name="device_oneplus3" remote="msmx" revision="xtended" />
+    <project path="kernel/oneplus/msm8996" name="unifiedOp3" remote="mady" revision="8.1" />
+    <project path="vendor/oneplus" name="vendor_oneplus" remote="msmx" revision="xtended" />
+
+    <!-- Custom Device 
+    <project path="device/oneplus/oneplus3" name="android_device_oneplus_oneplus3-msmx" remote="mcd" revision="mcd" />
+    <project path="kernel/oneplus/msm8996" name="android_kernel_oneplus_msm8996-mady" remote="mcd" revision="mcd" /> -->
+
+    <!-- Custom Repos
+    <remove-project name="Project-Xtended/frameworks_native" />
+    <project path="frameworks/native" name="android_frameworks_native" remote="mcd" revision="mcd" />
+
+    <remove-project name="Project-Xtended/frameworks_base" />
+    <project path="frameworks/base" name="android_frameworks_base-msmx" remote="mcd" revision="mcd" />
+
+    <remove-project name="Project-Xtended/packages_apps_Settings" />
+    <project path="packages/apps/Settings" name="android_packages_apps_Settings-msmx" remote="mcd" revision="mcd" />  -->
 
 </manifest>
