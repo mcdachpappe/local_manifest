@@ -3,7 +3,7 @@ This is the local manifest for MSM-Xtended for oneplus3/t.
 git clone this wherever you want and make symblic links to .repo/local_manifest for xml file/files.
 
 # Some explanation:
-  oneplus3t.xml: imports all neccessary files (including blobs and toolchains) to build rr for op3/t
+  oneplus3.xml: imports all neccessary files (including blobs and toolchains) to build MSM-Xtended for op3/t
   zz-remove-unused.xml: removes darwin build environment; it's not mandatory, but makes syncs smaller
 
   rompick.sh: example of a simple script to apply some patches (rom)
@@ -43,7 +43,7 @@ git clone this wherever you want and make symblic links to .repo/local_manifest 
 
 # cd /where/you/want/to/your/source-tree
   mkdir -p msmx/my_tmp
-  cd rr-6
+  cd msmx
   repo init -u https://github.com/Project-Xtended/manifest.git -b xtended
   cd my_tmp
   git clone https://github.com/mcdachpappe/local_manifest.git
@@ -69,7 +69,7 @@ git clone this wherever you want and make symblic links to .repo/local_manifest 
 
 # Shell command:
 # this takes some time; it's about 70GB to fetch
-  repo sync -j8 -c -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
+  repo sync -j16 -c -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
 
 ########################
@@ -85,5 +85,5 @@ If everything worked wirhout errors, you will get a flashable zip in
 If not, check make.log for errors.
 
 
-Congrats, you have just build your own rom!
-
+# Congrats, you have just build your own rom!  #
+------------------------------------------------
