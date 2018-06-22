@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# if you want to build without using ccache, comment the next 4 lines
+# setting up ccache
 export USE_CCACHE=1
 export CCACHE_DIR=/mnt/hgfs/Android/.ccache
 export CCACHE_MAX_SIZE=15G
@@ -14,17 +14,18 @@ TEMP=$TMP
 
 export TMP TMPDIR TEMP
 
-#make sure jack-server is restarted in TMP
+# make sure jack-server is restarted in TMP
 prebuilts/sdk/tools/jack-admin kill-server
-export ANDROID_JACK_VM_ARGS="-Xmx6g -Dfile.encoding=UTF-8 -XX:+TieredCompilation"
+export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx6g"
+export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx6g"
 
-# we want all compiler messages in English
+# we want all compiler messages in english
 export LANG=C
 
 # set up the environment (variables and functions)
 source build/envsetup.sh
 
-# clean the out dir; comment out, if you want to do a dirty build
+# clean the out dir
 make clean
 
 # fire up the building process and also log stdout
