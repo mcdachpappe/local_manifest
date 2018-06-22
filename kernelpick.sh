@@ -4,11 +4,11 @@
 # kernel picks
 ##
 
-pushd kernel/oneplus/msm8996
+# pushd kernel/oneplus/msm8996
 
+# wget .patch -O - | git am
 
-
-popd
+# popd
 
 ##
 # end of kernel picks
