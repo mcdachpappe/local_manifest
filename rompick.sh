@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# pushd device/oneplus/oneplus3
+pushd device/oneplus/oneplus3
 
 # op3/t: init.qcom.power: cosmetics and fixes
 wget https://github.com/mcdachpappe/android_device_oneplus_oneplus3-msmx/commit/7b037daf15b8db11cd41517f22172e107ad22a7c.patch -O - | git am
 
-# popd
+popd
 
 ##
 # end of device picks
