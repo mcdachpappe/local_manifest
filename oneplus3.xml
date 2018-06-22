@@ -11,8 +11,8 @@
 	<project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" revision="lineage-15.1" />
 
 	<!-- Vendor -->
-	<!--<project name="TheMuppets/proprietary_vendor_oneplus" path="vendor/oneplus" remote="github" revision="lineage-15.1" /> -->
-	<project name="mcdachpappe/proprietary_vendor_oneplus-rr" path="vendor/oneplus" remote="github" revision="mcd-8.1-upstream" />
+	<project name="TheMuppets/proprietary_vendor_oneplus" path="vendor/oneplus" remote="github" revision="lineage-15.1" /> 
+	<!-- <project name="mcdachpappe/proprietary_vendor_oneplus-rr" path="vendor/oneplus" remote="github" revision="mcd-8.1-upstream" /> -->
 
 	<!-- Custom -->
 	<remove-project name="LineageOS/android_frameworks_av" />
@@ -42,7 +42,22 @@
 	<remove-project name="LineageOS/android_packages_apps_LockClock" />
 	<project name="mcdachpappe/android_packages_apps_LockClock-rr" path="packages/apps/LockClock" remote="github" revision="mcd-8.1-upstream" />
 
+	<!-- Replace Trebuchet with Shishu-launcher -->
 	<remove-project name="ResurrectionRemix/android_packages_apps_Trebuchet" />
 	<project name="mcdachpappe/packages_apps_Launcher3-rr" path="packages/apps/Launcher3" remote="github" revision="mcd-8.1-upstream" />
+
+	<!-- Weatherproviders -->
+	<project name="mcdachpappe/android_packages_apps_WundergroundWeatherProvider" path="packages/apps/WundergroundWeatherProvider" remote="github" revision="mcd-8.1-upstream" />
+	<project name="mcdachpappe/android_packages_apps_OpenWeatherMapProvider" path="packages/apps/OpenWeatherMapProvider" remote="github" revision="mcd-8.1-upstream" />
+
+	<!-- LineageOS -->
+	<remove-project name="platform/system/security" />
+	<project name="LineageOS/android_system_security" path="system/security" remote="github" groups="pdk" revision="lineage-15.1" />  
+
+	<remove-project name="platform/external/chromium-webview"  />
+	<project name="LineageOS/android_external_chromium-webview" path="external/chromium-webview" remote="github" revision="lineage-15.1" />
+
+	<project name="LineageOS/android_hardware_qcom_thermal" path="hardware/qcom/thermal" remote="github" revision="lineage-15.1" />
+	<project name="LineageOS/android_hardware_qcom_vr" path="hardware/qcom/vr" remote="github" revision="lineage-15.1" />
 
 </manifest>
