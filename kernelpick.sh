@@ -84,6 +84,10 @@ wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commi
 # int_sqrt: Improve 3x faster integer sqrt
 wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/4bce0d60a3f2f8a8409763c2f69a2c4689ef7383.patch -O - | git am
 
+##
+# mcd patches
+##
+
 # cpu-boost: Rework scheduling setup
 wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/a4af87b9dcc29d0fd51b6fe8a8201099e574c153.patch -O - | git am
 
@@ -107,6 +111,10 @@ wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commi
 
 # ARM: dts: 15801: Optimize display effects of SRGB, DCI-P3 
 wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/151abdb410f72ec51bad123fd0296b52ab37df0b.patch -O - | git am
+
+##
+# mady again
+##
 
 # qcom: mpm: use interruptible wait to reduce load avg
 wget https://github.com/mady51/unifiedOp3/commit/3e033fd067a46c7de86fe89a104a6808979d805f.patch -O - | git am
@@ -250,10 +258,16 @@ wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commi
 wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/cced588ca294ce09ced2c627112b38996146a3e8.patch -O - | git am
 
 # msm-core: disable userspace access to poll_ms
-wget https://github.com/mady51/unifiedOp3/commit/65ef7d59a129a876e2c3b8a9a65502f94dd0cb17.patch -O - | git am
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/0bd0a47153d25395afe3afbe9f6d3038780a4a8a.patch -O - | git am
 
 # drivers: cpu-boost: optimize policy update loop on input cpufreq boost
-wget https://github.com/mady51/unifiedOp3/commit/8a6e8647838dca15f0403bb3c0ecce5dc4a40d14.patch -O - | git am
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/c8448c85e15f42119ed30dfc6281bb1ba13719aa.patch -O - | git am
+
+# reduced wakelocks by wlan
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/cc785731a26e6045221f3df6c2d34a0c7e001566.patch -O - | git am
+
+# mm/memory_hotplug: optimize probe routine
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/e4efcfb3b4f3fda9811d6892c02527a44c3b3794.patch -O - | git am
 
 # makefile: use ccache
 wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/d6b826bc0e61e8f216a5ec7586978049020b0bed.patch -O - | git am
@@ -262,8 +276,22 @@ wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commi
 wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/9610c8f69645202e23543468ab555be3b0bb453a.patch -O - | git am
 
 # defconfig: disable cpu hotplugs as default
-wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/f76b511371d82b567ce89c7a14d035b6aa145192.patch -O - | git am
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/bfa1af57ca353f10b2dd43307af3fc9698e9e62f.patch -O - | git am
 
+# defconfig: enable cpu-hotplugs again
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/ef8670aa349fb05076ab077033ca0f3fec31e60a.patch -O - | git am
+
+# cpufreq: Introduce CPU wake boost driver
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/bd4f61fd904f0fcadfd8b0f52f5d0f754e5d5a24.patch -O - | git am
+
+# defconfig: enable CPU wake boost driver
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/af4cebb117768da884b104202507b8db7c8312ad.patch -O - | git am
+
+# defconfig: enable fingerprint-boost
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/5aab74904e4e327a4ed62ef3e886dd934f8192eb.patch -O - | git am
+
+# give fp more priority
+wget https://github.com/mcdachpappe/android_kernel_oneplus_msm8996-caesium/commit/35303b2bd50c3c2c5fdb9b9b63c44c81b2548dad.patch -O - | git am
 popd
 
 ##
