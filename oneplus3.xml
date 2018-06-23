@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-    <!-- Github remote -->
-    <remote name="github"
-	fetch="https://github.com/"
-	sync-f="true"
-	sync-c="true"
-	sync-j="16" />
-
     <!-- Custom remotes -->
     <remote name="mcd"
 	fetch="https://github.com/mcdachpappe"
@@ -36,7 +29,13 @@
     <!-- OnePlus 3/t -->
     <project path="device/oneplus/oneplus3" name="device_oneplus3" remote="msmx" revision="xtended" />
     <project path="kernel/oneplus/msm8996" name="unifiedOp3" remote="mady" revision="8.1" />
-    <project path="vendor/oneplus" name="vendor_oneplus" remote="msmx" revision="xtended" />
+    <!-- <project path="vendor/oneplus" name="vendor_oneplus" remote="msmx" revision="xtended" /> -->
+    <project path="vendor/oneplus" name="proprietary_vendor_oneplus" remote="nos" revision="o2" />
+
+    <project path="packages/resources/devicesettings" name="LineageOS/android_packages_resources_devicesettings" remote="github" revision="lineage-15.1" />
+    <project path="vendor/nxp-nfc/opensource/frameworks" name="LineageOS/android_vendor_nxp-nfc_opensource_frameworks" remote="github" revision="lineage-15.0" />
+    <project path="vendor/nxp-nfc/opensource/libnfc-nci" remote="github" name="LineageOS/android_vendor_nxp-nfc_opensource_libnfc-nci" revision="lineage-15.0" />
+    <project path="vendor/nxp-nfc/opensource/Nfc" name="LineageOS/android_vendor_nxp-nfc_opensource_Nfc" remote="github" revision="lineage-15.0" />
 
     <!-- Custom Device 
     <project path="device/oneplus/oneplus3" name="android_device_oneplus_oneplus3-msmx" remote="mcd" revision="mcd" />
