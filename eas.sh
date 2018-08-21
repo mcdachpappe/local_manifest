@@ -17,39 +17,37 @@ clear
 # Resources
 THREAD="-j$(grep -c ^processor /proc/cpuinfo)"
 KERNEL="Image.gz-dtb"
-DEVICE="op3t"
 VER="mcd"
+HOME="home/Danny"
 
 # Kernel zip name
 HASH=`git rev-parse --short=8 HEAD`
-KERNEL_ZIP="$VER-$DEVICE-$(date +%y%m%d)-$HASH"
+KERNEL_ZIP="$VER-$(date +%y%m%d)-$HASH"
 
 # Vars
-export LOCALVERSION=~`echo "$VER"`
 export ARCH=arm64
 export SUBARCH=arm64
+export LOCALVERSION=~`echo "$VER"`
 export DEFCONFIG="msm-perf_defconfig"
 export KBUILD_BUILD_USER=danny
 export KBUILD_BUILD_HOST=vmbox
-export CROSS_COMPILE=/home/Danny/eas/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 
 # Use CCACHE
 export USE_CCACHE=1
-export CCACHE_DIR=/mnt/hgfs/Android/.ccache
+export CCACHE_DIR=mnt/hgfs/Android/.ccache
 export CCACHE_MAX_SIZE=15G
-CCACHE=ccache
 ccache -M $CCACHE_MAX_SIZE
-export CROSS_COMPILE="${CCACHE} ${CROSS_COMPILE}"
+export CROSS_COMPILE="ccache $HOME/eas/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
 
 # Clang
 CC="" # Path to clang executable
 CLANG_TRIPLE="aarch64-linux-gnu-"
 
 # Paths
-KERNEL_DIR="/home/Danny/eas/kernel"
+KERNEL_DIR="$HOME/eas/kernel"
 KBUILD_OUTPUT="${KERNEL_DIR}/out"
-REPACK_DIR="/home/Danny/eas/AnyKernel2"
-ZIP_MOVE="/home/Danny/eas"
+AK2_DIR="$HOME/eas/AnyKernel2"
+ZIP_MOVE="$HOME/eas"
 ZIMAGE_DIR="$KBUILD_OUTPUT/arch/$ARCH/boot"
 
 # Create output directory
@@ -57,7 +55,7 @@ mkdir -p ${KBUILD_OUTPUT}
 
 # Functions
 function clean_all {
-        cd $REPACK_DIR
+        cd $AK2_DIR
         rm -rf $KERNEL
         rm -rf zImage
         cd $KERNEL_DIR
@@ -72,8 +70,8 @@ function make_kernel {
 }
 
 function make_zip {
-        cp -vr $ZIMAGE_DIR/$KERNEL $REPACK_DIR/zImage
-        cd $REPACK_DIR
+        cp -vr $ZIMAGE_DIR/$KERNEL $AK2_DIR/zImage
+        cd $AK2_DIR
         zip -r9 $KERNEL_ZIP.zip * -x README.md
         mv *.zip $ZIP_MOVE
         cd $KERNEL_DIR
