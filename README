@@ -1,17 +1,10 @@
-This is the local manifest for MSM-Xtended for oneplus3/t.
+This is the local manifest for EAS Kernel for the op3/t - OREO
 
 git clone this wherever you want and make symblic links to .repo/local_manifest for xml file/files.
 
 # Some explanation:
-  oneplus3.xml: imports all neccessary files (including blobs and toolchains) to build MSM-Xtended for op3/t
-  zz-remove-unused.xml: removes darwin build environment; it's not mandatory, but makes syncs smaller
-
-  rompick.sh: example of a simple script to apply some patches (rom)
-  kernelpick.sh: example of a simple script to apply some patches (kernel)
-  buildrom.sh: example of a simple build script (rom)
-  buildkernel.sh: example of a simple build script (kernel)
-  reset.sh: example of a simple script to clean your repo/base
-  anykernel.sh: example of a simple script to turn your kernel file into a flashable .zip
+  buildeas.sh: example of a simple build script
+  kernelpick.sh: example of a simple script to apply some patches
 
 
 #######################
@@ -42,25 +35,23 @@ git clone this wherever you want and make symblic links to .repo/local_manifest 
   sudo chmod a+x /usr/local/bin/repo
 
 # cd /where/you/want/to/your/source-tree
-  mkdir -p msmx/my_tmp
-  cd msmx
-  repo init -u https://github.com/Project-Xtended/manifest.git -b xtended
+  mkdir -p eas/kernel
+  cd eas/kernel
+  git clone https://github.com/mcdachpappe/android_msm8996-oos-oreo-eas
+  git checkout mcd-mod
+  cd ..
+  mkdir -p AnyKernel2
+  cd AnyKernel2
+  git clone https://github.com/mcdachpappe/AnyKernel2-oos-eas
+  git checkout mcd
+  cd ..
+  mkdir -p my_tmp
   cd my_tmp
   git clone https://github.com/mcdachpappe/local_manifest.git
-  cd local_manifest
-  git checkout msmx
-  cd ../../.repo
-  mkdir local_manifests
-  cd local_manifests
-  ln -s ../../my_tmp/local_manifest/oneplus3.xml .
-  ln -s ../../my_tmp/local_manifest/zz-remove-unused.xml .
+  git checkout oos-eas
   cd ../..
-  ln -s my_tmp/local_manifest/buildrom.sh ./buildrom
-  ln -s my_tmp/local_manifest/buildkernel.sh ./buildkernel
-  ln -s my_tmp/local_manifest/rompick.sh ./rompick
+  ln -s my_tmp/local_manifest/buildeas.sh ./buildeas
   ln -s my_tmp/local_manifest/kernelpick.sh ./kernelpick
-  ln -s my_tmp/local_manifest/reset.sh ./reset
-  ln -s my_tmp/local_manifest/anykernel.sh ./anykernel
 
 
 ######################################
@@ -68,22 +59,36 @@ git clone this wherever you want and make symblic links to .repo/local_manifest 
 ######################################
 
 # Shell command:
-# this takes some time; it's about 70GB to fetch
+# this takes some time; it's about 20GB to fetch
   repo sync -j16 -c -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
 
-########################
-# Building MSM-Xtended #
-########################
+##################################
+# Fetch the latest kernel source #
+##################################
+
+cd eas/kernel
+git remote add linux-stable https://kernel.googlesource.com/pub/scm/linux/kernel/git/stable/linux-stable.git
+git fetch linux-stable
+
+# Figure out what version you are on
+make kernelversion
+
+# git cherry-pick <previous_tag>..<next_tag>
+# example: git cherry-pick v3.18.118..v3.18.119
+
+
+###########################
+# Building EAS-OOS Kernel #
+###########################
 
 # Shell command:
-  ./buildrom
+  ./buildeas
 
 If everything worked wirhout errors, you will get a flashable zip in
-  out/target/product/oneplus3/
+  ./kernel
 
-If not, check make.log for errors.
+If not: check terminal for errors
 
-
-# Congrats, you have just build your own rom!  #
+# Congrats, you have just build your own kernel!  #
 ------------------------------------------------
