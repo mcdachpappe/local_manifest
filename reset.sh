@@ -3,8 +3,6 @@
 RED="\033[01;31m"
 RESTORE="\033[0m"
 
-make clean
-
 repo sync -j16 -c -f --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
 repo forall -c git reset --hard
